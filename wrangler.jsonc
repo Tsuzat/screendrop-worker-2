@@ -1,0 +1,26 @@
+/**
+ * DB and BUCKET intentionally omit resource names and IDs. Wrangler and the
+ * Deploy to Cloudflare flow auto-provision isolated resources for each user.
+ */
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "screendrop-worker-2",
+  "main": "@tanstack/react-start/server-entry",
+  "compatibility_date": "2026-07-17",
+  "compatibility_flags": ["nodejs_compat"],
+  "observability": {
+    "enabled": true
+  },
+  "upload_source_maps": true,
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "migrations_dir": "drizzle","database_id": "808e0ec2-0caf-4064-8c2b-f1f43be5911d","database_name": "screendrop-worker"
+    }
+  ],
+  "r2_buckets": [
+    {
+      "binding": "BUCKET","bucket_name": "screendrop-worker","preview_bucket_name": "screendrop-worker"
+    }
+  ]
+}
